@@ -1,0 +1,19 @@
+<h1>Please Log In </h1>
+
+<% if flash[:alert]%>
+  <% flash[:alert].each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>
+
+<%= form_tag sessions_path do %>
+  <%= label_tag "Email" %>
+  <%= text_field_tag :email %>
+  <br>
+  <%= label_tag 'Password' %>
+  <%= password_field_tag :password %>
+  <br>
+  <%= submit_tag "Sign In" %>
+<% end %>
+<br><br>
+<%= link_to "Sign up", new_employee_path %>

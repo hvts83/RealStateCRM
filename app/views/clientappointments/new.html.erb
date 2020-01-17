@@ -1,0 +1,63 @@
+<div class="row py-4">
+    <div class="col-lg-6">
+    <div class="card">
+    <h2>Client Appointment </h2>
+    <hr>
+    <%= form_for @clientappointment, url: clientappointments_path do |f| %>
+        <% if flash[:client_error] %>
+        <h2>Errors: </h2>
+        <% flash[:client_error].each do |message| %>
+        <ul>
+          <li> <%= message %></li>
+          <% end %>
+          <% end %>
+        </ul>
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: "Enter Description" %><br>
+    <%= f.label :time %>
+    <%= f.text_field :time, placeholder: "HH:MM" %><br>
+    <%= f.label :date %>
+    <%= f.text_field :date, placeholder: "MM/DD/YYYY" %><br>
+    <%= f.label :location %>
+    <%= f.text_area :location, placeholder: "Enter Location" %><br>
+    <%= f.label :client %>
+    <%= f.collection_select :client_id, Client.all, :id, :name, prompt: true %><br>
+    <%= f.label :employee_id %>
+    <%= f.collection_select :employee_id, Employee.all, :id, :name, prompt: true %><br><br>
+    <%= f.submit "Create Appointment" %>
+    
+    <% end %>
+</div>
+
+</div>
+<div class="col-lg-6">
+    <div class="card">
+    <h2>Customer Appointment </h2>
+    <hr>
+    <%= form_for @customerappointment, url: customerappointments_path do |f| %>
+        <% if flash[:customer_error] %>
+        <h2>Errors: </h2>
+        <% flash[:customer_error].each do |message| %>
+        <ul>
+          <li> <%= message %></li>
+          <% end %>
+          <% end %>
+    <%= f.label :description %>
+    <%= f.text_area :description, placeholder: "Enter Description" %><br>
+    <%= f.label :time %>
+    <%= f.text_field :time, placeholder: "HH:MM" %><br>
+    <%= f.label :date %>
+    <%= f.text_field :date, placeholder: "MM/DD/YYYY" %><br>
+    <%= f.label :location %>
+    <%= f.text_area :location, placeholder: "Enter Location"  %><br>
+    <%= f.label :customer %>
+    <%= f.collection_select :customer_id, Customer.all, :id, :name, prompt: true %><br>
+    <%= f.label :employee_id %>
+    <%= f.collection_select :employee_id, Employee.all, :id, :name, prompt: true %><br><br>
+    <%= f.submit "Create Appointment" %>
+    <% end %>
+</div>
+<br> 
+</div>
+</div> 
+    <%= link_to "back", home_path %>

@@ -1,0 +1,11 @@
+
+<div class="col-lg-4 offset-lg-3 py-4">
+    <div class="card">
+    <h1> <%= "#{@client.name}" %> </h1>
+    <p> Phone Number: <%= "#{@client.phone}" %> </p>
+    <p> Email Address: <%= "#{@client.email}" %> </p>
+    </div>
+</div>
+
+
+<%= link_to "Back", clients_path %>

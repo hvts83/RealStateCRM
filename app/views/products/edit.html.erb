@@ -1,0 +1,35 @@
+<div class="col-lg-4 offset-lg-4">
+<div class="card py-2">
+<h2 class="text-center">Edit Product</h2>
+<%= form_for @product do |f| %>
+  <%= f.label :name %>:
+  <%= f.text_field :name%><br>
+
+  <%= f.label :location %>:
+  <%= f.text_field :location %><br>
+
+
+  <%= f.label :product_type %>:
+  <%= f.text_field :product_type %><br>
+
+  <%= f.label :status %>:
+  <%= f.text_field :status %><br >
+
+  <%= f.label :price %>:
+  <%= f.text_field :price %><br>
+
+  <%= f.label :neighboorhood %>:
+  <%= f.text_field :neighboorhood %><br>
+
+  <%= f.label :image %>
+  <%= f.file_field :image %><br>
+
+  <%= f.label :Client %>
+  <%= f.collection_select :client_id, Client.all, :id, :name, prompt: true %><br>
+
+
+
+  <%= f.submit %>
+<% end %>
+</div>
+</div>

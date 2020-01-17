@@ -1,0 +1,31 @@
+
+<h1> View Products </h1><hr>
+<div class="row">
+<% @products.each do |p| %>
+    <div class="col-lg-4 py-2">
+    <div class="card">
+        <h4 class="text-center"><span class="feather-32" data-feather="home"> </span><br> Name: <%= p.name %></h4>
+        <hr>
+        <%= image_tag(p.image, class: "img-fluid") if p.image.attached? %>
+        <p> Location: <%= p.location %></p> 
+        <p> Product Type: <%= p.product_type %></p>
+        <p> Status: <%= p.status %></p>
+        <p> Price: <%= p.price %></p>
+        <p> Neighboorhood: <%= p.neighboorhood %></p>
+        <p> Client Name: <%= p.client.name %></p>
+        <hr>
+        <%= link_to "Edit", edit_product_path(p), class: "btn btn-outline-primary btn-sm" %>
+    </div>
+</div>
+
+    <% end %>
+</div>
+
+    <%= link_to "Back", home_path %>
+    
+
+
+
+
+
+

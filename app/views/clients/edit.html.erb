@@ -1,0 +1,26 @@
+<div class="col-lg-4 offset-lg-4 py-4">
+<div class="card">
+  <h2 class="text-center">Update Client</h2>
+  <%= form_for @client do |f| %>
+    <% if @client.errors.any? %>
+    <h2>Errors: </h2>
+    <% @client.errors.full_messages.each do |message| %>
+    <ul>
+      <li> <%= message %></li>
+      <% end %>
+      <% end %>
+    </ul>
+    <%= f.label :name %>
+    <%= f.text_field :name%><br />
+
+    <%= f.label :phone %>
+    <%= f.text_field :phone %><br />
+
+    <%= f.label :email %>
+    <%= f.text_field :email %><br />
+
+    <%= f.submit %>
+  <% end %>
+</div>
+</div>
+<%= link_to "back", home_path %>

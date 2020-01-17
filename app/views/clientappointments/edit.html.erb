@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-lg-4 offset-col-lg-4">
+        <div class="card">
+        <h1> Edit Appointment </h1><hr>
+
+        <%= form_for @clientappointment do |f| %>
+            <% if @clientappointment.errors.any? %>
+            <h2>Errors: </h2>
+            <% flash[:error].each do |message| %>
+            <ul>
+              <li> <%= message %></li>
+              <% end %>
+              <% end %>
+            </ul>
+            <%= f.label :description %>
+            <%= f.text_field :description %><br>
+            <%= f.label :time %>
+            <%= f.text_field :time %><br>
+            <%= f.label :date %>
+            <%= f.text_field :date %><br>
+            <%= f.label :location %>
+            <%= f.text_field :location %><br>
+            <%= f.collection_select :client_id, Client.all, :id, :name, prompt: true %><br><br>
+            <%= f.collection_select :employee_id, Employee.all, :id, :name, prompt: true %><br><br>
+            <%= f.submit "Edit Appointment" %>
+            <% end %>
+        <br><hr>    
+    <%= link_to "back", home_path %>
+    </div>
+    </div>
+</div>

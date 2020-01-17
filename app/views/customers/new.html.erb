@@ -1,0 +1,29 @@
+<div class="col-lg-6 offset-lg-3 py-4">
+<div class="card">
+<h2 class="text-center">New customer</h2>
+<hr>
+<%= form_for @customer do |f| %>
+    <% if @customer.errors.any? %>
+  <h2>Errors: </h2>
+  <% @customer.errors.full_messages.each do |message| %>
+  <ul>
+    <li> <%= message %></li>
+    <% end %>
+  </ul>
+  <% end %>
+  <%= f.label :name %>
+  <%= f.text_field :name, placeholder: "Enter Name" %><br />
+
+  <%= f.label :phone %>
+  <%= f.text_field :phone, placeholder: "(555)555-5555" %><br />
+
+  <%= f.label :email %>
+  <%= f.text_field :email, placeholder: "user@domain.com" %><br />
+
+  <%= f.label :budget %>$
+  <%= f.text_field :budget, placeholder: "Enter your budget $$$" %><br />
+
+  <%= f.submit %>
+<% end %>
+</div>
+</div>

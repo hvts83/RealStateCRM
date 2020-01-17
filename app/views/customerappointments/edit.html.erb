@@ -1,0 +1,23 @@
+<div class="col-lg-4 offset-lg-4 py-2">
+    <div class="card">
+<h4 class="text-center"> Edit Appointment </h4><hr>
+
+<%= form_for @customerappointment do |f| %>
+    <%= f.label :description %>
+    <%= f.text_field :description %><br>
+    <%= f.label :time %>
+    <%= f.text_field :time %><br>
+    <%= f.label :date %>
+    <%= f.text_field :date %><br>
+    <%= f.label :location %>
+    <%= f.text_field :location %><br>
+    <%= f.label :customer %>
+    <%= f.collection_select :customer, Customer.all, :id, :name, prompt: true %><br>
+    <%= f.label :employee_id %>
+    <%= f.collection_select :employee_id, Employee.all, :id, :name, prompt: true %><br><br>
+    <%= f.submit "Edit Appointment" %>
+    <% end %>
+<br><hr>    
+    <%= link_to "back", home_path %>
+    </div>
+</div>

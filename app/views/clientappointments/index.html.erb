@@ -1,0 +1,22 @@
+
+<h1>Client Appointments</h1><hr>
+<div class="row">
+<% @clientappointments.each do |a| %>
+    <div class="col-lg-4 py-2">
+        <div class="card" >
+        <h4 class="text-center"><span class="feather-32" data-feather="calendar"> </span><br><%= a.description %></h4>
+        <hr>
+        <h4 class="time"> Time: <%= a.time %> </h4>
+        <p> Date: <%= a.date %> </p>
+        <p> Location: <%= a.location %></p>
+        <p> Client Name: <%= a.client.name %></p>
+        <p> Employee name: <%= a.employee.name %></p>
+        <hr>
+         <%= link_to "Edit Appointment", edit_clientappointment_path(a) %>
+        </div>
+    </div>
+    <% end %>
+</div>
+
+
+    <%= link_to "back", home_path %>
